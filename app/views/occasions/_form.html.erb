@@ -1,0 +1,16 @@
+<%= simple_form_for(@occasion) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label: 'Name of occasion' %>
+    <%= f.input :occastion_type, label: 'Type of occasion', collection: ['Birthday', 'Anniversary', 
+      'Valentines', 'Religious holiday'] %>
+    <%= f.input :message %>
+    <%= f.input :date %>
+    <%= f.input :recipient_id, input_html: { value: @recipient.id }, as: :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

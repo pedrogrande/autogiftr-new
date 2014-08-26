@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @occasion.message %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @occasion.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @occasion.date %>
+</p>
+
+<p>
+  <strong>Occastion type:</strong>
+  <%= @occasion.occastion_type %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @occasion.recipient %>
+</p>
+
+<h2>Gifts selected</h2>
+<ul>
+  <% if @occasion.gifts.count > 0 %>
+    <% @occasion.gifts.each do |gift| %>
+      <li><%= gift.name %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<hr>
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th></th>
+  </tr>
+  <% @gifts.each do |gift| %>
+    <tr>
+      <td><%= gift.name %></td>
+      <td><%= gift.price %></td>
+      <td><%= link_to 'Add gift', add_gift_occasion_path(gift: gift.id), class: 'btn btn-primary' %></td>
+    </tr>
+  <% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_occasion_path(@occasion) %> |
+<%= link_to 'Back', occasions_path %>

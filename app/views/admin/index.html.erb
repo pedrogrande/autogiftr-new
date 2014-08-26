@@ -1,0 +1,83 @@
+<h1>Admin</h1>
+
+<div class="row">
+	<div class="col-md-6">
+		<h2>Gifts</h2>
+		<%= link_to 'Add gift', new_gift_path, class: 'btn btn-primary btn-sm' %>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Price</th>
+			</tr>
+			<% @gifts.each do |gift| %>
+				<tr>
+					<td><%= image_tag(gift.picture_url(:thumbnail), width: 50, height: 50) %> 
+					<%= link_to gift.name, gift %></td>
+					<td><%= gift.price %></td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+
+	<div class="col-md-6">
+		<h2>Accounts</h2>
+		<table class="table">
+			<tr>
+				<td>Account name</td>
+				<td>Email</td>
+			</tr>
+				<% @accounts.each do |account| %>
+			<tr>
+					<td><%= account.name %></td>
+					<td><%= account.user.email %></td>
+			</tr>
+				<% end %>
+		</table>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h2>Upcoming orders</h2>
+		<table class="table">
+			<tr>
+				<td>Order number</td>
+				<td>Date to be sent</td>
+				<td>Gifts to be sent</td>
+			</tr>
+			<% @future_occasions.each do |occasion| %>
+				<tr>
+					<td><%= occasion.id %></td>
+					<td><%= occasion.date %></td>
+					<td>
+						<ul>
+							<% occasion.gifts.each do |gift| %>
+								<li><%= gift.name %></li>
+							<% end %>
+						</ul>
+					</td>
+				</tr>
+			<% end %>
+		</table>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
