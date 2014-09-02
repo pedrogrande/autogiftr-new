@@ -15,5 +15,11 @@
   <%= @gift.price %>
 </p>
 
+<ul>
+	<% @gift.tags.each do |tag| %>
+		<li><%= tag.name %></li>
+	<% end %>
+</ul>
+
 <%= link_to 'Edit', edit_gift_path(@gift) %> |
 <%= link_to 'Back', gifts_path %>

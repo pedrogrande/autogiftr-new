@@ -10,4 +10,8 @@ class Occasion < ActiveRecord::Base
 	def self.order_by_date
 		order(date: :desc)
 	end
+
+	def self.unsent
+		where(sent: nil)
+	end
 end

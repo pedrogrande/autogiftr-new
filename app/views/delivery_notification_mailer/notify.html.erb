@@ -1,0 +1,20 @@
+<h1>Delivery notification</h1>
+
+<p>
+  Hi <%= @user.account.name %>
+</p>
+
+<p>This is a friendly notification to let you know that we have just sent <%= pluralize(@occasion.gifts.count, 'gift') %> to <%= @occasion.recipient.name %> for their <%= @occasion.name %>.</p>
+
+<p>The <%= pluralize(@occasion.gifts.count, 'gift') %> we have sent are:</p>
+
+<ul>
+	<% @occasion.gifts.each do |gift| %>
+		<li><%= gift.name %></li>
+	<% end %>
+</ul>
+
+<p>The address we have sent these items to is:</p>
+<p><%= @occasion.recipient.address %></p>
+
+<p>Thanks!</p>

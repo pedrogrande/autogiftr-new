@@ -1,5 +1,12 @@
 class OccasionsController < ApplicationController
-  before_action :set_occasion, only: [:add_gift, :show, :edit, :update, :destroy]
+  before_action :set_occasion, only: [:send_gift, :add_gift, :show, :edit, :update, :destroy]
+
+  def send_gift
+    @occasion.update_column('sent', true)
+    DeliveryNotificationMailer.notify(@occasion).deliver
+    redirect_to :back
+  end
+
 
   def add_gift
     if params[:gift]

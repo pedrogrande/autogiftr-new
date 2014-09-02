@@ -43,9 +43,10 @@
 		<h2>Upcoming orders  (<%= @future_occasions.count %>)</h2>
 		<table class="table">
 			<tr>
-				<td>Order number</td>
-				<td>Date to be sent</td>
-				<td>Gifts to be sent</td>
+				<th>Order number</th>
+				<th>Date to be sent</th>
+				<th>Gifts to be sent</th>
+				<th>Sent</th>
 			</tr>
 			<% @future_occasions.each do |occasion| %>
 				<tr>
@@ -58,6 +59,7 @@
 							<% end %>
 						</ul>
 					</td>
+					<td><%= link_to 'Sent', send_gift_occasion_path(occasion), class: 'btn btn-info' %></td>
 				</tr>
 			<% end %>
 		</table>

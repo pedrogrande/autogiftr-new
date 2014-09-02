@@ -1,10 +1,23 @@
-<%= simple_form_for(@recipient) do |f| %>
+<%= simple_nested_form_for(@recipient) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
+    <%= f.input :name, input_html: { class: 'form-control' } %>
+    <%= f.input :address, input_html: { class: 'form-control' } %>
   </div>
+
+  <p><strong>Add occasions</strong></p>
+
+  
+		  <%= f.fields_for :occasions do |occasion_field| %>
+		  	<%= occasion_field.input :name %>
+		  	<%= occasion_field.input :occastion_type, collection: ['Birthday', 'Anniversary', 'Valentines', 'Other'] %>
+		  	<%= occasion_field.input :date %>
+		  	<%= occasion_field.input :message %>
+		  	<%= occasion_field.link_to_remove "Remove this occasion" %>
+		  <% end %>
+  	<%= f.link_to_add "Add occasion", :occasions %>
+
 
   <div class="form-actions">
     <%= f.button :submit %>

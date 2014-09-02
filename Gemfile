@@ -10,6 +10,9 @@ gem 'rolify'
 gem 'carrierwave'
 gem 'cloudinary'
 gem 'will_paginate', '~> 3.0'
+gem 'friendly_id', '~> 5.0.0'
+gem 'acts-as-taggable-on'
+gem 'nested_form'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
